@@ -107,7 +107,7 @@
   }
 
   .scripts {
-    display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 26px;
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 44px;
     padding-block: 4px;
   }
   .scripts span {
@@ -117,7 +117,6 @@
   .scripts .ko { font-family: "Noto Serif KR", Newsreader, serif; }
   .scripts .ja { font-family: "Noto Serif JP", Newsreader, serif; }
   .scripts .en { font-family: Newsreader, Georgia, serif; }
-  .scripts .dot { font-size: clamp(20px, 4vw, 30px); color: var(--faint); font-weight: 400; }
 
   .thesis {
     font-size: clamp(19px, 2.4vw, 23px);
@@ -171,6 +170,7 @@
     border-color: color-mix(in oklab, var(--proof) 45%, var(--line));
     background: var(--proof-bg);
   }
+  @media (min-width: 720px) { .step.proof { grid-column: span 2; } }
   .step.proof .n, .step.proof h3 { color: var(--proof); }
   .step.proof p { color: color-mix(in oklab, var(--proof) 60%, var(--ink)); }
 
@@ -230,7 +230,7 @@
     </div>
 
     <div class="scripts" aria-label="Native languages: Korean, Japanese, English">
-      <span class="ko">한국어</span><span class="dot">·</span><span class="ja">日本語</span><span class="dot">·</span><span class="en">English</span>
+      <span class="ko">한국어</span><span class="ja">日本語</span><span class="en">English</span>
     </div>
 
     <p class="thesis">Three native languages and one working conviction: a diagnosis you cannot <em>run</em> is still a guess.</p>
