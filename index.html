@@ -1,20 +1,375 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="/assets/f16965043a9db39096ecfb63f3f4ae39.a02f38e2.png">
-  
-<link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
-<script type="module" crossorigin src="/assets/index.09ba9a7a.js"></script>
-  <link rel="modulepreload" href="/assets/motion.32d40ca3.js">
-  <link rel="stylesheet" href="/assets/index.0219ffb6.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Jooinh Park — AI engineer in Tokyo. Native Korean, Japanese and English. Builds agentic incident-triage systems.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Jooinh Park">
+<meta property="og:description" content="AI engineer in Tokyo. Native Korean, Japanese and English. Builds agentic incident-triage systems.">
+<meta property="og:url" content="https://rosesandviolets.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://rosesandviolets.github.io/">
+<title>Jooinh Park</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&text=%ED%95%9C%EA%B5%AD%EC%96%B4&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600&text=%E6%97%A5%E6%9C%AC%E8%AA%9E&display=swap">
+
+<style>
+  :root {
+    --ground:   #F4F5F6;
+    --surface:  #FFFFFF;
+    --ink:      #14171B;
+    --muted:    #5A6169;
+    --faint:    #858D96;
+    --line:     #DCDFE3;
+    --line-soft:#E7E9EC;
+    --accent:   #2D4BC4;
+    --proof:    #8C5B12;
+    --proof-bg: #F6EFE2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:   #101317;
+      --surface:  #171B21;
+      --ink:      #E7EAEE;
+      --muted:    #99A1AB;
+      --faint:    #737C87;
+      --line:     #272C34;
+      --line-soft:#1F242B;
+      --accent:   #90A6FF;
+      --proof:    #D9A441;
+      --proof-bg: #221C11;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:   #101317;
+    --surface:  #171B21;
+    --ink:      #E7EAEE;
+    --muted:    #99A1AB;
+    --faint:    #737C87;
+    --line:     #272C34;
+    --line-soft:#1F242B;
+    --accent:   #90A6FF;
+    --proof:    #D9A441;
+    --proof-bg: #221C11;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: Newsreader, Charter, "Iowan Old Style", Georgia, serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding-inline: 24px;
+    padding-block: 72px 96px;
+  }
+
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in oklab, var(--accent) 35%, transparent); }
+  a:hover { border-bottom-color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--faint);
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 22px;
+  }
+  .eyebrow::after { content: ""; flex-grow: 1; height: 1px; background: var(--line); }
+
+  /* ---------- hero ---------- */
+  header { display: flex; flex-direction: column; gap: 34px; }
+
+  h1 {
+    font-size: clamp(30px, 6vw, 46px);
+    font-weight: 500; line-height: 1.05; margin: 0;
+    letter-spacing: -0.015em; text-wrap: balance;
+  }
+  .role {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); margin-top: 12px;
+  }
+
+  .scripts {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 26px;
+    padding-block: 4px;
+  }
+  .scripts span {
+    font-size: clamp(34px, 8.5vw, 62px);
+    font-weight: 600; line-height: 1.1; letter-spacing: -0.01em;
+  }
+  .scripts .ko { font-family: "Noto Serif KR", Newsreader, serif; }
+  .scripts .ja { font-family: "Noto Serif JP", Newsreader, serif; }
+  .scripts .en { font-family: Newsreader, Georgia, serif; }
+  .scripts .dot { font-size: clamp(20px, 4vw, 30px); color: var(--faint); font-weight: 400; }
+
+  .thesis {
+    font-size: clamp(19px, 2.4vw, 23px);
+    line-height: 1.5; max-width: 30em; color: var(--ink);
+    font-weight: 300; text-wrap: pretty;
+  }
+  .thesis em { font-style: italic; color: var(--accent); font-weight: 400; }
+
+  .meta {
+    display: flex; flex-wrap: wrap; gap: 8px 22px;
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 12.5px; color: var(--muted);
+    padding-top: 6px; border-top: 1px solid var(--line); margin-top: 4px;
+  }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 84px; }
+  h2 {
+    font-size: clamp(24px, 3.4vw, 31px); font-weight: 500;
+    line-height: 1.2; margin: 0 0 16px; letter-spacing: -0.012em;
+    text-wrap: balance;
+  }
+  p { margin: 0 0 18px; max-width: 66ch; text-wrap: pretty; }
+  p:last-child { margin-bottom: 0; }
+  .lead { font-size: 19px; color: var(--ink); }
+  .note { color: var(--muted); font-size: 16px; }
+
+  /* ---------- pipeline ---------- */
+  .pipe {
+    display: grid; gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    margin: 30px 0 26px;
+  }
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 16px 16px 18px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .step .n {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+    color: var(--faint);
+  }
+  .step h3 {
+    margin: 0; font-size: 16px; font-weight: 600; line-height: 1.25;
+    letter-spacing: -0.005em;
+  }
+  .step p { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--muted); max-width: none; }
+  .step.proof {
+    border-color: color-mix(in oklab, var(--proof) 45%, var(--line));
+    background: var(--proof-bg);
+  }
+  .step.proof .n, .step.proof h3 { color: var(--proof); }
+  .step.proof p { color: color-mix(in oklab, var(--proof) 60%, var(--ink)); }
+
+  .guard {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 13px; line-height: 1.6; color: var(--muted);
+    border-left: 2px solid var(--proof); padding: 2px 0 2px 16px;
+    max-width: 60ch;
+  }
+  .guard b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- facts list ---------- */
+  dl.facts { margin: 0; display: grid; gap: 0; }
+  dl.facts > div {
+    display: grid; grid-template-columns: 150px 1fr; gap: 6px 22px;
+    padding: 14px 0; border-top: 1px solid var(--line-soft); align-items: baseline;
+  }
+  dl.facts > div:first-child { border-top: 1px solid var(--line); }
+  dt {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--faint); padding-top: 4px;
+  }
+  dd { margin: 0; font-size: 16.5px; line-height: 1.5; }
+  dd .sub { display: block; color: var(--muted); font-size: 15px; margin-top: 3px; }
+
+  /* ---------- contact ---------- */
+  .contact { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 20px;
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 14px; }
+
+  footer {
+    margin-top: 84px; padding-top: 22px; border-top: 1px solid var(--line);
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11.5px; color: var(--faint); letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 560px) {
+    .wrap { padding-block: 52px 72px; }
+    section { margin-top: 62px; }
+    dl.facts > div { grid-template-columns: 1fr; gap: 3px; }
+    dt { padding-top: 0; }
+  }
+</style>
+<style>
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+</style>
 </head>
 <body>
-  <div id="app"></div>
-  
-  
+<div class="wrap">
 
+  <header>
+    <div>
+      <h1>Jooinh&nbsp;Park</h1>
+      <div class="role">AI Engineer · Product Development · Tokyo</div>
+    </div>
+
+    <div class="scripts" aria-label="Native languages: Korean, Japanese, English">
+      <span class="ko">한국어</span><span class="dot">·</span><span class="ja">日本語</span><span class="dot">·</span><span class="en">English</span>
+    </div>
+
+    <p class="thesis">Three native languages and one working conviction: a diagnosis you cannot <em>run</em> is still a guess.</p>
+
+    <div class="meta">
+      <span>Tokyo, Japan</span>
+      <span>M.S. Computer Science, Ritsumeikan</span>
+      <span>Work-authorized in Japan</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="eyebrow">AgentOps</div>
+    <h2>An incident-triage pipeline that proves its own diagnoses</h2>
+
+    <p class="lead">Softbrain builds e-Sales Manager, a CRM/SFA platform. Like most companies that have shipped
+    something people depend on, its engineering capacity is consumed by keeping that thing alive — the backlog
+    is maintenance, and maintenance is triage.</p>
+
+    <p>I spent my first month on that rotation. Then I moved to the AI team and built the thing that attacks
+    the rotation itself. I am the sole designer and implementer; a second engineer handles log emission and
+    deployment.</p>
+
+    <div class="pipe">
+      <div class="step">
+        <div class="n">01</div>
+        <h3>Triggers itself</h3>
+        <p>Application logs, maintenance tickets, and New Relic and CloudWatch alerts. No human starts it.</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <h3>Gathers its own context</h3>
+        <p>Source code, correlated logs, network state, environment and dependency detail — it decides what it needs to look at.</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <h3>Isolates a root cause</h3>
+        <p>Not the symptom the alert named. The thing underneath it.</p>
+      </div>
+      <div class="step">
+        <div class="n">04</div>
+        <h3>Drafts a candidate fix</h3>
+        <p>A concrete change, not a suggestion to investigate further.</p>
+      </div>
+      <div class="step proof">
+        <div class="n">05</div>
+        <h3>Runs it in a sandbox</h3>
+        <p>If the fix resolves the failure, the diagnosis was right. If it doesn't, the triage says so before a human spends an hour on it.</p>
+      </div>
+    </div>
+
+    <p class="guard"><b>Nothing is auto-applied.</b> The sandbox run exists to raise the confidence of the
+    triage a person finally reads — not to close the ticket on its own. An agent that ships unreviewed fixes
+    into a production CRM is a different and much worse product.</p>
+
+    <p style="margin-top: 26px;">It runs against our internal product environment today. Development continues
+    through 2026, toward a team expansion to take it product-ready. Built with Claude and Codex, across AWS and
+    GCP.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Languages</div>
+    <h2>Native in three, professionally for eight years</h2>
+
+    <p class="lead">Not "business level." I grew up and went to school in Korea, took my degrees in Japanese at
+    Ritsumeikan, and work in English daily. All three are the language I think in, depending on the room.</p>
+
+    <p>Before engineering, this was the job. From 2016 to 2024 I worked as a simultaneous and consecutive
+    interpreter — Korean cultural institutions in Japan, industry conventions, game-industry events. Live,
+    in front of an audience, no second draft. You learn a specific discipline there: stay exact while you are
+    under time pressure, and never let the pressure reach your voice.</p>
+
+    <p class="note">That turns out to be the same discipline a production incident call asks for, which is not
+    something I expected when I was doing it.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Also built</div>
+    <h2>Websidian</h2>
+    <p class="lead">A personal knowledge and operations web application — roughly 11,800 lines of Python and
+    JavaScript, zero runtime dependencies, no external requests. It builds to a single self-contained
+    <span class="mono" style="font-size: 0.92em;">index.html</span> that still opens from
+    <span class="mono" style="font-size: 0.92em;">file://</span> if nothing is serving it.</p>
+
+    <p>Free-text captures land in a shared inbox and are turned into typed CSV rows by purpose-built Claude Code
+    skills; the site renders those rows as fifteen independent slices. The interesting constraint is that the
+    contract is the data layer, not the prompt — a skill can be rewritten entirely and the pages still render,
+    because what they agree on is the shape of a row. The test suite fails the build when the documentation and
+    the actual file tree disagree in either direction.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Background</div>
+    <h2>How I got here</h2>
+    <dl class="facts">
+      <div>
+        <dt>2026 –</dt>
+        <dd>AI Engineer, Product Development — Softbrain Co., Ltd., Tokyo
+          <span class="sub">AI team of two full-time and five partner engineers. AgentOps.</span></dd>
+      </div>
+      <div>
+        <dt>2026</dt>
+        <dd>M.S. Computer Science — Ritsumeikan University
+          <span class="sub">Thesis: <em>Optimizing EPR Allocation Using Double Auction in Quantum Networks.</em>
+          The network simulator was built from scratch in Python rather than adopting an existing framework.</span></dd>
+      </div>
+      <div>
+        <dt>2024</dt>
+        <dd>B.E. Information Science and Engineering — Ritsumeikan University</dd>
+      </div>
+      <div>
+        <dt>2021</dt>
+        <dd>Security Camp NEXT — IPA, Japan
+          <span class="sub">Selective national program in low-level networking and security engineering.</span></dd>
+      </div>
+      <div>
+        <dt>2016 – 2024</dt>
+        <dd>Freelance simultaneous and business interpreter — Korean ⇄ Japanese ⇄ English</dd>
+      </div>
+      <div>
+        <dt>Tools</dt>
+        <dd>Python, JavaScript, Go, C, React · AWS, GCP · New Relic, CloudWatch
+          <span class="sub">Agentic pipelines, autonomous context-gathering, sandboxed validation, LLM-as-judge evaluation.</span></dd>
+      </div>
+    </dl>
+  </section>
+
+  <section>
+    <div class="eyebrow">Contact</div>
+    <h2>Reachable in any of the three</h2>
+    <div class="contact">
+      <a href="mailto:qkrwn0805@gmail.com">qkrwn0805@gmail.com</a>
+      <a href="https://github.com/RosesAndViolets">github.com/RosesAndViolets</a>
+      <a href="https://www.linkedin.com/in/jooinh-park-1104bb1a6/">linkedin.com/in/jooinh-park</a>
+    </div>
+  </section>
+
+  <footer>Tokyo · 한국어 · 日本語 · English</footer>
+
+</div>
 </body>
 </html>
